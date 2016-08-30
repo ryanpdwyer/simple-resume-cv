@@ -77,7 +77,8 @@ right=0.70in,
 top=0.60in,
 bottom=0.45in,
 nohead,
-includefoot]{geometry}
+includefoot
+]{geometry}
 
 % PDF settings and properties.
 \RequirePackage{hyperref}
@@ -198,16 +199,22 @@ BoldItalicFont=FreeSerifBoldItalic]
 \newcommand{\FooterText}{\hfill\PageKOfN\hfill}
 \else
 \newcommand{\HeaderText}{}
-\newcommand{\FooterText}{\null\ExtraMargin\hphantom{\DraftStamp}\hfill%
+\newcommand{\FooterText}{
+\null\ExtraMargin\hphantom{\DraftStamp}\hfill%
 \PageKOfN\hfill%
-\DraftStamp\ExtraMargin\null}
+\DraftStamp\ExtraMargin\null
+}
 \fi
 
 \def\ps@plain{%
 \def\@oddhead{\HeaderText}%
 \def\@evenhead{\HeaderText}%
-\def\@oddfoot{\FooterText}%
-\def\@evenfoot{\FooterText}}
+\def\@oddfoot{
+% \FooterText
+}%
+\def\@evenfoot{
+% \FooterText
+}}
 
 \pagestyle{plain}
 
